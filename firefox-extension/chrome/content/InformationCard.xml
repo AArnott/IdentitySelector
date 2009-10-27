@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is the binding file for the XBL.
+   -
+   - The Initial Developer of the Original Code is
+   - Kevin Miller (Iolo Solutions, Inc).
+   - Portions created by the Initial Developer are Copyright (C) 2006
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - Alternatively, the contents of this file may be used under the terms of
+   - either the GNU General Public License Version 2 or later (the "GPL"), or
+   - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+   - in which case the provisions of the GPL or the LGPL are applicable instead
+   - of those above. If you wish to allow use of your version of this file only
+   - under the terms of either the GPL or the LGPL, and not to allow others to
+   - use your version of this file under the terms of the MPL, indicate your
+   - decision by deleting the provisions above and replace them with the notice
+   - and other provisions required by the LGPL or the GPL. If you do not delete
+   - the provisions above, a recipient may use your version of this file under
+   - the terms of any one of the MPL, the GPL or the LGPL.
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<bindings xmlns="http://www.mozilla.org/xbl" xmlns:html="http://www.w3.org/1999/xhtml" >
+
+<binding id="selector">
+  <implementation>
+    <constructor>
+  <![CDATA[ 
+  try
+  {
+    var form;
+    form = this;
+    while (form.tagName != "FORM") 
+    {
+        form = form.parentNode;
+    }
+    
+    // If a script calls someForm.submit(), the onsubmit event does not fire,
+    // so we need to redefine the submit method 
+    form._post_informationcard_submit = form.submit;
+    form.submit = this.informationcard_submit;
+    
+    // capture the onsubmit event on the form
+    form.addEventListener('submit', this.informationcard_submit, true);
+    
+    // make sure we have handles to get reference these two objects nomatter where we came from.
+    this._informationcard_form = form;
+    form._informationcard_this = this;
+  }
+  catch( e )
+  {
+    // can't find the form? No problemo
+  }
+  
+  this.issuer = null;
+  this.requiredClaims = null;
+  this.optionalClaims = null;
+  this.tokenType = "urn:oasis:names:tc:SAML:1.0:assertion";
+  this.privacyPolicy = null;
+  this.privacyPolicyVersion = null;
+
+  if( this.tagName == "OBJECT" )
+  {
+
+    // grab all the parameters and populate
+    for(each in this.childNodes )
+    {
+      var theNode  = this.childNodes[each];
+      if( theNode.tagName == "PARAM" )
+      {
+        switch( theNode.name )
+        {
+           case "tokenType":
+              this.tokenType = theNode.value;
+              break;
+              
+           case "optionalClaims":
+              this.optionalClaims = theNode.value;
+              break;
+              
+           case "requiredClaims":
+              this.requiredClaims = theNode.value;
+              break;
+              
+           case "issuer":
+              this.issuer = theNode.value;
+              break;
+              
+           case "privacyPolicy":
+              this.privacyPolicy = theNode.value;
+              break;
+
+          case "privacyPolicyVersion":
+              this.privacyPolicyVersion = theNode.value;
+              break;
+              
+           default:
+              // throw?
+              // throw new( new Function("num","desc", "this.number=num; this.description=desc;" ))(result.number,result.description);
+              break;
+        }
+      }
+    }
+    // Replace the mimetype, to eliminate the unsupported message.
+    this.type=""
+  }
+  else
+  {
+  try{ throw "foo" } catch( e ) { }
+    // behavior syntax.
+    var addelements = this.getElementsByTagName( this.tagName.substring(0,this.tagName.indexOf(":")) + ":ADD" );
+    for( var each =0; each<addelements.length; each++ )
+    {
+      try
+      {
+        var claim = addelements[each].attributes["claimType"];
+        var optl = addelements[each].attributes["optional"];
+        if( claim != null)
+        {
+          if( optl != null )
+          {
+            if( optl.value == "true" )
+            {
+              if( optionalClaims == null )
+                optionalClaims = claim.value;
+              else
+                optionalClaims+=" "+ claim.value;
+              continue;
+            }
+            if( optl.value == "false" )
+            {
+              if( requiredClaims == null )
+                requiredClaims = claim.value;
+              else
+                requiredClaims+=" "+ claim.value;
+                
+              continue;
+            }
+            // invalid, skipit
+            continue;
+          }
+          
+          // not specified == required.
+          requiredClaims+=claim.value+" ";
+          continue;
+        }
+      }
+      catch( e) 
+      {
+        // skip the unused bits
+      }
+    }    
+    
+    var attr = this.attributes["issuer"];
+    if( attr != null )
+      this.issuer = attr.value;
+    
+    attr = this.attributes["privacyPolicy"];
+    if( attr != null )
+      this.privacyPolicy = attr.value;
+
+    attr = this.attributes["privacyPolicyVersion"];
+    if( attr != null )
+      this.privacyPolicyVersion = attr.value;
+
+    attr = this.attributes["tokenType"];
+    if( attr != null )
+      this.tokenType= attr.value;
+  }
+
+  ]]>
+</constructor>
+    <method name="informationcard_submit">
+      <parameter name="event"/>
+      <body>
+          <![CDATA[ 
+        var target = event ? event.target : this;
+
+        // insert our value into the form as it goes.
+        var input = document.createElement("INPUT");
+        input.setAttribute("name",target._informationcard_this.getAttribute("name"));
+        input.setAttribute("type","hidden");
+        input.value = target._informationcard_this.value;
+        target.appendChild(input);
+            
+        // call real submit function
+        this._post_informationcard_submit();
+      ]]></body>
+    </method>
+
+    <property name="value" >
+  <getter>
+    <![CDATA[ 
+    var result = null;
+
+    // call the identity selector dispatch
+    var data = new Object();
+
+    data.issuer = this.issuer;
+    data.requiredClaims= this.requiredClaims;
+    data.optionalClaims= this.optionalClaims;
+    data.tokenType = this.tokenType;
+    data.privacyPolicy =  this.privacyPolicy;
+    data.privacyPolicyVersion =  this.privacyPolicyVersion;
+    data.recipientURL = document.location;
+
+    top.cardspacedata = data;
+    var event = document.createEvent("Events");
+    event.initEvent("CallIdentitySelector", true, true);
+    top.dispatchEvent(event);
+
+    result = top.cardspacedata;
+    top.cardspacedata = null;
+
+    if( typeof( result.number ) != 'undefined')
+    throw new( new Function("num","desc", "this.number=num; this.description=desc;" ))(result.number,result.description);
+
+    return result;
+    ]]>
+  </getter>
+  </property>
+  </implementation>
+  <content></content>
+</binding>
+
+
+</bindings>

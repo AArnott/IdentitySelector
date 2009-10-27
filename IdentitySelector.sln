@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IdentitySelector", "IdentitySelector.vcproj", "{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadThisFirst", "ReadThisFirst\ReadThisFirst.vcproj", "{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "firefox-extension", "firefox-extension\firefox-extension.vcproj", "{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs01.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = firefox-extension\\firefox-extension.vcproj
+		SccProjectName1 = firefox-extension
+		SccLocalPath1 = firefox-extension
+		SccProjectUniqueName2 = IdentitySelector.vcproj
+		SccLocalPath2 = .
+		SccProjectUniqueName3 = ReadThisFirst\\ReadThisFirst.vcproj
+		SccProjectName3 = ReadThisFirst
+		SccLocalPath3 = ReadThisFirst
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Debug|Win32.Build.0 = Debug|Win32
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Release|Any CPU.ActiveCfg = Release|Win32
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Release|Win32.ActiveCfg = Release|Win32
+		{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}.Release|Win32.Build.0 = Release|Win32
+		{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}.Release|Any CPU.ActiveCfg = Release|Win32
+		{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}.Release|Win32.ActiveCfg = Release|Win32
+		{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}.Release|Win32.Build.0 = Release|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Debug|Win32.Build.0 = Debug|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Release|Any CPU.ActiveCfg = Release|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Release|Win32.ActiveCfg = Release|Win32
+		{E689F629-DE3A-42E3-8D4A-14A79DC58D7E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

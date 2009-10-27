@@ -1,0 +1,6 @@
+object[type="application/x-informationcard"],
+object[type="application/x-informationCard"]
+{ -moz-binding: url("chrome://identityselector/content/InformationCard.xml#selector") !important; }
+
+ic\:informationcard
+{ -moz-binding: url("chrome://identityselector/content/InformationCard.xml#selector") !important; }

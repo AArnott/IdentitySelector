@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+ <Description about="urn:mozilla:install-manifest">
+
+    <em:id>{5a6eeede-5d1c-40ee-9f81-dad96f32a573}</em:id>
+    <em:name>IdentitySelector</em:name>
+    <em:name>Information card support</em:name>
+    <em:version>1.0</em:version>
+    <em:description>Enables browser support for websites that use information cards</em:description>
+
+    <em:homepageURL>http://www.perpetual-motion.com</em:homepageURL>
+    <em:aboutURL>chrome://identityselector/content/about.xul</em:aboutURL>
+
+    <em:optionsURL>chrome://identityselector/content/identityselector.xul</em:optionsURL>
+    <em:iconURL>chrome://identityselector/content/IdentitySelector.png</em:iconURL>
+    <em:updateURL>http://perpetual-motion.com/IdentitySelector.rdf</em:updateURL>
+
+   <!-- Firefox -->
+   <em:targetApplication>
+     <Description>
+       <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+       <em:minVersion>1.5</em:minVersion>
+       <em:maxVersion>3.0a1</em:maxVersion>
+     </Description>
+   </em:targetApplication>
+
+   <!-- Mozilla -->
+   <em:targetApplication>
+     <Description>
+       <em:id>{86c18b42-e466-45a9-ae7a-9b95ba6f5640}</em:id>
+       <em:minVersion>1.7</em:minVersion>
+       <em:maxVersion>1.8</em:maxVersion>
+     </Description>
+   </em:targetApplication>
+ </Description>
+</RDF>

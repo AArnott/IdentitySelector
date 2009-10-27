@@ -1,0 +1,5 @@
+overlay	chrome://browser/content/browser.xul	chrome://identityselector/content/InformationCard.xul
+
+content	identityselector	jar:chrome/identityselector.jar!/content/
+
+style	chrome://browser/content/browser.xul		  chrome://identityselector/content/InformationCard.css
