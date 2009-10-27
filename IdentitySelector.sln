@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IdentitySelector", "IdentitySelector.vcproj", "{C8852AE4-F00C-46BC-AEA0-DAC9AA48C57F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadThisFirst", "ReadThisFirst\ReadThisFirst.vcproj", "{E1576EE9-4BBE-418F-8256-46F2F4A54E2D}"
