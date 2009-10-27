@@ -14,14 +14,14 @@
 
     <em:optionsURL>chrome://identityselector/content/identityselector.xul</em:optionsURL>
     <em:iconURL>chrome://identityselector/content/IdentitySelector.png</em:iconURL>
-    <em:updateURL>http://perpetual-motion.com/IdentitySelector.rdf</em:updateURL>
+    <em:updateURL>https://perpetual-motion.com/IdentitySelector.rdf</em:updateURL>
 
    <!-- Firefox -->
    <em:targetApplication>
      <Description>
        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
        <em:minVersion>1.5</em:minVersion>
-       <em:maxVersion>3.0a1</em:maxVersion>
+       <em:maxVersion>3.5.3</em:maxVersion>
      </Description>
    </em:targetApplication>
 
