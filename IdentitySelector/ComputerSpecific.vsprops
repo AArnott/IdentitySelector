@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="ComputerSpecific"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(SolutionDir)\gecko-sdk\idl&quot;;&quot;$(SolutionDir)\gecko-sdk\include&quot;;&quot;C:\Program Files\Microsoft SDKs\Windows\v6.0A\Include&quot;;&quot;C:\Program Files\Microsoft SDKs\Windows\v6.0\Include&quot;"
+	/>
+	<Tool
+		Name="VCLibrarianTool"
+		AdditionalLibraryDirectories=""
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalLibraryDirectories="&quot;$(SolutionDir)\gecko-sdk\lib&quot;;&quot;c:\Program Files\Microsoft SDKs\Windows\v6.0A\Lib&quot;;&quot;c:\Program Files\Microsoft SDKs\Windows\v6.0\Lib&quot;"
+	/>
+	<Tool
+		Name="VCMIDLTool"
+		AdditionalIncludeDirectories=""
+	/>
+</VisualStudioPropertySheet>
