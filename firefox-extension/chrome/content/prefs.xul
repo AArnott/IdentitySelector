@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/xul.css" type="text/css"?>
+<?xml-stylesheet href="cards.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://identityselector/locale/prefs.dtd">
+
+<overlay id="IdentitySelector_preferences_overlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <!-- Merge with the BrowserPreferences Window -->
+  <prefwindow id="BrowserPreferences">
+    <prefpane id="IdentitiySelectorPane"
+              label="IdentitySelector"
+              image="chrome://identityselector/content/img/icon.png"
+              onpaneload="identitySelectorPopulateMenu();">
+      <preferences>
+        <preference id="pref_identityselector" name="identityselector.contractid" type="unichar"/>
+        <preference id="pref_advertiseSelector" name="identityselector.advertise" type="unichar"/>
+      </preferences>
+
+      <vbox id="IdentitySelectorSelectorHeader">
+        <label>&infocard.prefs.title;</label>
+      </vbox>
+
+      <separator id="IdentitySelectorSelectorSeparator"/>
+
+      <groupbox id="chooseSelectorGroupBox" hidden="false">
+        <caption label="&infocard.prefs.chooseSelector;"/>
+        <menulist id="IdentitySelectorMenuList" preference="pref_identityselector">
+          <menupopup id="IdentitySelectorMenuPopup" />
+        </menulist>
+      </groupbox>
+      <groupbox id="advertiseSelectorGroupBox" hidden="false">
+        <caption label="&infocard.prefs.advertiseSelector;"/>
+        <menulist id="advertiseSelector" preference="pref_advertiseSelector">
+          <menupopup id="advselectorpopup">
+            <menuitem label="&infocard.prefs.advertiseSelectorNO;" value="advertiseSelectorNO"/>
+            <menuitem label="&infocard.prefs.advertiseSelectorInstallation;" value="advertiseSelectorInstallation"/>
+            <menuitem label="&infocard.prefs.advertiseSelectorName;" value="advertiseSelectorName"/>
+          </menupopup>
+        </menulist>
+      </groupbox>
+
+    </prefpane>
+
+    <!-- beware of https://bugzilla.mozilla.org/show_bug.cgi?id=296418 -->
+    <html:script type="application/x-javascript">
+      <![CDATA[
+     function prefsCallback() {
+      var mgmtWindow = window.openDialog("chrome://identityselector/content/cardManager.xul","InfoCard Selector", "modal,chrome,resizable,width=800,height=640,centerscreen");
+     }
+     
+     function filePicker() {
+
+       netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+       var nsIFilePicker = Components.interfaces.nsIFilePicker;
+       var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+       fp.init(window, "Select a File", nsIFilePicker.modeOpen);
+       fp.appendFilters( nsIFilePicker.filterAll );
+       var res = fp.show();
+       if (res == nsIFilePicker.returnOK) {
+	     var textbox = document.getElementById("cardStoreLocalFilePath");
+         textbox.value = fp.file.path;
+	     var pref = document.getElementById("pref_cardStoreLocalFilePath");
+	     pref.value = fp.file.path;
+       }
+     
+     }
+     
+     function debug(msg) {
+      var debug = Components.classes['@mozilla.org/consoleservice;1'].getService(Components.interfaces.nsIConsoleService);
+      debug.logStringMessage("IdentitySelector prefs: " + msg);
+     }
+     
+     function identitySelectorPopulateMenu() {
+      var cid = null;
+      {
+   		// lookup class id from config.
+		var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+		var pbi = prefs.QueryInterface(Components.interfaces.nsIPrefBranch);
+
+		cid = pbi.getCharPref("identityselector.contractid");
+      }
+	  debug("selected selector " + cid);
+      var menuList = document.getElementById("IdentitySelectorMenuList");
+      var menuPopup = document.getElementById("IdentitySelectorMenuPopup");
+
+	  const CATMAN_CONTRACTID = "@mozilla.org/categorymanager;1";
+	  const nsICategoryManager = Components.interfaces.nsICategoryManager;
+	  var catman = Components.classes[CATMAN_CONTRACTID].getService(nsICategoryManager)
+	  const IIDENTITYSELECTOR_IID_STR = "ddd9bc02-c964-4bd5-b5bc-943e483c6c57";
+
+	  var selectors = catman.enumerateCategory ( IIDENTITYSELECTOR_IID_STR );
+	  for (;selectors.hasMoreElements(); ) {
+	   var clasz = selectors.getNext().QueryInterface(Components.interfaces.nsISupportsCString).data;
+	   debug("clasz=" + clasz);
+       var contractid = catman.getCategoryEntry(IIDENTITYSELECTOR_IID_STR, clasz);
+	   debug("contractid=" + contractid);
+
+       try {
+        var obj = Components.classes[contractid];
+        if (obj !== undefined) {
+         var menuitem = document.createElement("menuitem");
+         menuitem.setAttribute("label", clasz);
+         menuitem.setAttribute("value", contractid);
+         menuPopup.appendChild(menuitem);
+         if (contractid && (contractid == cid)) {
+          debug("selecting " + clasz);
+          menuList.selectedItem = menuitem;
+         }
+        } else {
+         debug("the class " + clasz + " class is unknown");
+        }
+       }
+       catch (e) { debug("selector " + clasz + " is not installed. " + e); }
+
+	  }
+	  
+	  {
+        var menuitem = document.createElement("menuitem");
+        menuitem.setAttribute("label", "digitalme");
+        menuitem.setAttribute("value", "digitalme");
+        menuPopup.appendChild(menuitem);
+      }
+     }
+
+  ]]>
+    </html:script>
+
+  </prefwindow>
+</overlay>

@@ -13,13 +13,14 @@
    - License.
    -
    - The Original Code is the .xul file for the XBL implementation.
+   - XBL is no longer used. Axel Nennker 20071123
    -
    - The Initial Developer of the Original Code is
    - Kevin Miller (Iolo Solutions, Inc).
    - Portions created by the Initial Developer are Copyright (C) 2006
    - the Initial Developer. All Rights Reserved.
    -
-   - Contributor(s):
+   - Contributor(s): Axel Nennker http://ignisvulpis.blogspot.com/
    -
    - Alternatively, the contents of this file may be used under the terms of
    - either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -34,6 +35,19 @@
    - the terms of any one of the MPL, the GPL or the LGPL.
    -
    - ***** END LICENSE BLOCK ***** -->
+
+<!DOCTYPE overlay SYSTEM "">
 <overlay id="InformationCardOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  <script type="application/x-javascript" src="chrome://IdentitySelector/content/InformationCard.js"/>
+  <script type="application/x-javascript" src="chrome://identityselector/content/InformationCard.js"/>
+
+  <statusbar id="status-bar">
+    <statusbarpanel
+     id="ic-status-bar-panel"
+     class="statusbarpanel-iconic"
+     tooltiptext="Information Card Selector"
+     onclick="IdentitySelector.statusbarClick()">
+      <image id="ic-status-bar-image" src="chrome://identityselector/content/img/infocard_23x16-crossed.png"/>
+    </statusbarpanel>
+  </statusbar>
+
 </overlay>

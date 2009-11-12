@@ -1,0 +1,25 @@
+<!ENTITY cardmanager.title "Infokarten">
+<!ENTITY cardmanager.daylabel "Identity Selector">
+<!ENTITY cardmanager.cardname "Kartenname:">
+<!ENTITY cardmanager.givenname "Vorname:">
+<!ENTITY cardmanager.surname "Nachname:">
+<!ENTITY cardmanager.email "Email:">
+<!ENTITY cardmanager.streetaddress "Stra&#223;e:">
+<!ENTITY cardmanager.locality "Stadt:">
+<!ENTITY cardmanager.stateorprovince "Bundesland:">
+<!ENTITY cardmanager.postalcode "Postleitzahl:">
+<!ENTITY cardmanager.country "Staat:">
+<!ENTITY cardmanager.primaryphone "Telefonnummer:">
+<!ENTITY cardmanager.mobilephone "Handynummer:">
+<!ENTITY cardmanager.otherphone "Andere Telefonnr:">
+<!ENTITY cardmanager.dateofbirth "Geburtsdatum:">
+<!ENTITY cardmanager.gender "Geschlecht:">
+<!ENTITY cardmanager.imgurl "Bild URL:">
+<!ENTITY cardmanager.disableSelector "Abschalten">
+<!ENTITY cardmanager.newcard "Neue Karte">
+<!ENTITY cardmanager.deletecard "Karte l&#246;schen">
+<!ENTITY cardmanager.updatecard "Karte speichern">
+<!ENTITY cardmanager.cancel "Abbrechen">
+<!ENTITY cardmanager.selectcard "Karte ausw&#228;hlen">
+<!ENTITY cardmanager.privacy "Datenschutzerkl&#228;rung">
+<!ENTITY cardmanager.firstTimeVisit "Dies ist Ihr erster Besuch auf dieser Websiete. Nachdenken!">

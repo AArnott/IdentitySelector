@@ -4,24 +4,26 @@
  <Description about="urn:mozilla:install-manifest">
 
     <em:id>{5a6eeede-5d1c-40ee-9f81-dad96f32a573}</em:id>
-    <em:name>IdentitySelector</em:name>
+    <em:name>IdentitySelector Selector</em:name>
     <em:name>Information card support</em:name>
-    <em:version>1.0</em:version>
-    <em:description>Enables browser support for websites that use information cards</em:description>
+    <em:version>1.0.14</em:version>
+    <em:description>Enables browser support for websites that use information cards on Windows</em:description>
 
-    <em:homepageURL>http://www.perpetual-motion.com</em:homepageURL>
-    <em:aboutURL>chrome://identityselector/content/about.xul</em:aboutURL>
+    <em:homepageURL>http://www.codeplex.com/IdentitySelector</em:homepageURL>
 
-    <em:optionsURL>chrome://identityselector/content/identityselector.xul</em:optionsURL>
     <em:iconURL>chrome://identityselector/content/IdentitySelector.png</em:iconURL>
     <em:updateURL>https://perpetual-motion.com/IdentitySelector.rdf</em:updateURL>
+    <em:targetPlatform>WINNT_x86-msvc</em:targetPlatform>
+    <em:creator>Kevin Miller http://perpetual-motion.com/Kevin/ </em:creator>
+    <em:developer>Garrett Serack http://www.fearthecowboy.com/ </em:developer>
+    <em:developer>Axel Nennker http://ignisvulpis.blogspot.com/ </em:developer>
 
-   <!-- Firefox -->
+      <!-- Firefox -->
    <em:targetApplication>
      <Description>
        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
        <em:minVersion>1.5</em:minVersion>
-       <em:maxVersion>3.5.4</em:maxVersion>
+       <em:maxVersion>3.5.*</em:maxVersion>
      </Description>
    </em:targetApplication>
 

@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{CD94
 		firefox-extension\chrome\content\InformationCard.js = firefox-extension\chrome\content\InformationCard.js
 		firefox-extension\chrome\content\InformationCard.xml = firefox-extension\chrome\content\InformationCard.xml
 		firefox-extension\chrome\content\InformationCard.xul = firefox-extension\chrome\content\InformationCard.xul
+		firefox-extension\chrome\content\Intercept.js = firefox-extension\chrome\content\Intercept.js
+		firefox-extension\chrome\content\prefs.xul = firefox-extension\chrome\content\prefs.xul
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "defaults", "defaults", "{E4FB58C2-4998-49AF-B65A-7F529C77A790}"
@@ -30,6 +32,18 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "preferences", "preferences", "{B64CE10D-D227-4D06-AF24-62F3BFB55C80}"
 	ProjectSection(SolutionItems) = preProject
 		firefox-extension\defaults\preferences\identityselector.js = firefox-extension\defaults\preferences\identityselector.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "locale", "locale", "{9F09BA44-7F70-4A50-AB91-63D00DF040B9}"
+	ProjectSection(SolutionItems) = preProject
+		firefox-extension\chrome\locale\prefs.dtd = firefox-extension\chrome\locale\prefs.dtd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{505B3A1D-ABE6-4E8D-8900-9673991C7D3F}"
+	ProjectSection(SolutionItems) = preProject
+		firefox-extension\chrome\content\img\icon.png = firefox-extension\chrome\content\img\icon.png
+		firefox-extension\chrome\content\img\infocard_23x16-crossed.png = firefox-extension\chrome\content\img\infocard_23x16-crossed.png
+		firefox-extension\chrome\content\img\infocard_23x16.png = firefox-extension\chrome\content\img\infocard_23x16.png
 	EndProjectSection
 EndProject
 Global
@@ -74,6 +88,8 @@ Global
 		{0BF79A8D-8509-40C1-B5D8-B3673FE6444C} = {1D770B1A-E636-485E-93D1-76166B385D69}
 		{E4FB58C2-4998-49AF-B65A-7F529C77A790} = {1D770B1A-E636-485E-93D1-76166B385D69}
 		{CD945C07-7346-403C-8D08-49DF04E0001A} = {0BF79A8D-8509-40C1-B5D8-B3673FE6444C}
+		{9F09BA44-7F70-4A50-AB91-63D00DF040B9} = {0BF79A8D-8509-40C1-B5D8-B3673FE6444C}
+		{505B3A1D-ABE6-4E8D-8900-9673991C7D3F} = {CD945C07-7346-403C-8D08-49DF04E0001A}
 		{B64CE10D-D227-4D06-AF24-62F3BFB55C80} = {E4FB58C2-4998-49AF-B65A-7F529C77A790}
 	EndGlobalSection
 EndGlobal

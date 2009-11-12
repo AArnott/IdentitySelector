@@ -1,0 +1,14 @@
+<!ENTITY infocard.prefs.chooseSelector "Bitte waehlen Sie einen ID selector" >
+<!ENTITY infocard.prefs.encryption "Kartenspeicher verschluesseln" >
+<!ENTITY infocard.prefs.profile "current profile" >
+<!ENTITY infocard.prefs.title "Id Selector Preferences" >
+<!ENTITY infocard.prefs.manageCards "managed cards" >
+<!ENTITY infocard.prefs.filePicker "..." >
+<!ENTITY infocard.prefs.URL "URL" >
+<!ENTITY infocard.prefs.localFile "local file" >
+<!ENTITY infocard.prefs.groupboxCaption "Cardstore Preferences" >
+<!ENTITY infocard.prefs.advertiseSelectorNO "Don't advertise id selector" >
+<!ENTITY infocard.prefs.advertiseSelectorInstallation "Avertise id selector" >
+<!ENTITY infocard.prefs.advertiseSelectorName "Avertise id selector name" >
+<!ENTITY infocard.prefs.advertiseSelectorNameAndVersion "Avertise id selector name and version" >
+<!ENTITY infocard.prefs.advertiseSelector "Advertise id selector" >

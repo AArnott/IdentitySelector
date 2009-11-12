@@ -34,4 +34,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+pref("identityselector.advertise", "advertiseSelectorName");
 pref("identityselector.contractid", "@perpetual-motion.com/IdentitySelector/CardSpaceIdentitySelector;1");
+pref("identityselector.disabled", false);
+

@@ -1,5 +1,14 @@
 overlay	chrome://browser/content/browser.xul	chrome://identityselector/content/InformationCard.xul
+overlay chrome://browser/content/preferences/preferences.xul          chrome://identityselector/content/prefs.xul
 
 content	identityselector	jar:chrome/identityselector.jar!/content/
 
-style	chrome://browser/content/browser.xul		  chrome://identityselector/content/InformationCard.css
+locale identityselector en-US jar:chrome/identityselector.jar!/locale/en-US/
+locale identityselector de-DE jar:chrome/identityselector.jar!/locale/de-DE/
+locale identityselector cs-CZ jar:chrome/identityselector.jar!/locale/cs-CZ/
+locale identityselector ar jar:chrome/identityselector.jar!/locale/ar/
+locale identityselector fr jar:chrome/identityselector.jar!/locale/fr/
+locale identityselector no jar:chrome/identityselector.jar!/locale/no/
+locale identityselector sv-SE jar:chrome/identityselector.jar!/locale/sv-SE/
+locale identityselector tr-TR jar:chrome/identityselector.jar!/locale/tr-TR/
+locale identityselector zh-CN jar:chrome/identityselector.jar!/locale/zh-CN/
